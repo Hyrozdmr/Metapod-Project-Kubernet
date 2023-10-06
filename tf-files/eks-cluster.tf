@@ -2,14 +2,14 @@ module "eks" {
   source          = "terraform-aws-modules/eks/aws"
   version         = "17.24.0"
   cluster_name    = local.cluster_name
-  cluster_version = "1.20"
-  subnets         = module.vpc.private_subnets
+  cluster_version = "1.27"
+  subnets         = data.aws_subnets.vpc_subnets.ids
 
   tags = {
     Environment = "training"
   }
 
-  vpc_id = module.vpc.vpc_id
+  vpc_id = aws_default_vpc.default_vpc.id
 
   workers_group_defaults = {
     root_volume_type = "gp2"
@@ -22,6 +22,7 @@ module "eks" {
       additional_userdata           = "echo foo bar"
       asg_desired_capacity          = 2
       additional_security_group_ids = [aws_security_group.worker_group_mgmt_one.id]
+      public_ip = true
     },
     {
       name                          = "worker-group-2"
@@ -29,6 +30,7 @@ module "eks" {
       additional_userdata           = "echo foo bar"
       additional_security_group_ids = [aws_security_group.worker_group_mgmt_two.id]
       asg_desired_capacity          = 1
+      public_ip = true
     },
   ]
 }
