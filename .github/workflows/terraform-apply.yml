@@ -1,21 +1,21 @@
-# name: Terraform Apply
+name: Terraform Apply
 
-# on:
-#   push:
-#     branches: [ main ]
+on:
+  push:
+    branches: [ create-s3 ]
 
-# jobs:
-#   terraform:
-#     runs-on: ubuntu-latest
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - uses: actions/checkout@v2
+    steps:
+      - uses: actions/checkout@v2
 
-#       - name: Setup Terraform
-#         uses: hashicorp/setup-terraform@v1
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
 
-#       - name: Terraform Init
-#         run: terraform init
+      - name: Terraform Init
+        run: terraform init
 
-#       - name: Terraform Apply
-#         run: terraform apply -auto-approve
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
