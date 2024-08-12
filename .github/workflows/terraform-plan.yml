@@ -2,10 +2,10 @@ name: Terraform Plan
 
 on:
   push:
-    branches: [ create-s3]
+    branches: [ main ]
 
   pull_request:
-    branches: [ create-s3]
+    branches: [ main ]
 
 jobs:
   terraform:
