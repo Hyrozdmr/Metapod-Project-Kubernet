@@ -1,21 +1,30 @@
-# name: Terraform Apply
+name: Terraform Apply
 
-# on:
-#   push:
-#     branches: [ main ]
+on:
+  push:
+    branches: [ main ]
 
-# jobs:
-#   terraform:
-#     runs-on: ubuntu-latest
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - uses: actions/checkout@v2
+    steps:
+      - uses: actions/checkout@v2
 
-#       - name: Setup Terraform
-#         uses: hashicorp/setup-terraform@v1
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.9.3  
+      
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
 
-#       - name: Terraform Init
-#         run: terraform init
+      - name: Terraform Init
+        run: terraform init
 
-#       - name: Terraform Apply
-#         run: terraform apply -auto-approve
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
