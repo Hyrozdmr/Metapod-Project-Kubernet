@@ -1,6 +1,9 @@
 name: Terraform Plan
 
 on:
+  push:
+    branches: [ create-s3]
+    
   pull_request:
     branches: [ create-s3]
 
