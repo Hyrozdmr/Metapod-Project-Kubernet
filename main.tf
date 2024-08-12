@@ -6,7 +6,7 @@ provider "aws" {
 # Configure the Terraform backend to use S3
 terraform {
   backend "s3" {
-    bucket = "hyr-terraform-bucket-EKS"
+    bucket = "hyr-terraform-bucket-metapod"
     key    = "terraform/state.tfstate"
     region = "eu-west-2"
   }
