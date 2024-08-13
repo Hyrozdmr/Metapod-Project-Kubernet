@@ -1,7 +1,7 @@
 module "eks" {
   source          = "terraform-aws-modules/eks/aws"
   version         = "17.24.0"
-  cluster_name    = local.cluster_name
+  cluster_name    = "hyr-eks-cluster"
   cluster_version = "1.29"
   subnets         = data.aws_subnets.vpc_subnets.ids
 
