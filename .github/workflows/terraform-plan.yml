@@ -4,8 +4,8 @@ on:
   push:
     branches: [ meks-cluster ]
 
-  pull_request:
-    branches: [ eks-cluster ]
+  # pull_request:
+  #   branches: [ eks-cluster ]
 
 jobs:
   terraform:

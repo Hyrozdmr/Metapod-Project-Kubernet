@@ -1,0 +1,21 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  namespace: hyr-work
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hyr-nginx
+  template:
+    metadata:
+      labels:
+        app: hyr-nginx
+    spec:
+      containers:
+      - name: hyr-nginx-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80
