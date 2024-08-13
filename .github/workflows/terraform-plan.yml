@@ -2,10 +2,10 @@ name: Terraform Plan
 
 on:
   push:
-    branches: [ main ]
+    branches: [ meks-cluster ]
 
   pull_request:
-    branches: [ main ]
+    branches: [ eks-cluster ]
 
 jobs:
   terraform:
