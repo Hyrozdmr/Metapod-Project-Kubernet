@@ -1,0 +1,12 @@
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: hyr-loadbalancer-service
+#   namespace: hyr-work
+# spec:
+#   type: LoadBalancer
+#   ports:
+#     - port: 80
+#       targetPort: 80
+#   selector:
+#     app: hyr-nginx
