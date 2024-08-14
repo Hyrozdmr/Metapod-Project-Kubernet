@@ -11,3 +11,7 @@ terraform {
     region = "eu-west-2"
   }
 }
+
+module "eks" {
+  source = "./tf-files"
+}
