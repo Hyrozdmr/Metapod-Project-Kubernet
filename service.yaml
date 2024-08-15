@@ -4,7 +4,7 @@ metadata:
   name: nginx-service
   namespace: hyr-work
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: hyr-nginx
   ports:
