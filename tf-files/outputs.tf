@@ -32,3 +32,7 @@ output "cluster_name" {
   description = "Kubernetes Cluster Name"
   value       = "hyr-eks-cluster"
 }
+
+output "app_url" {
+  value = "ac6d93068a28f4346be2fedb2b6fac30-f805ba049c62ed03.elb.eu-west-2.amazonaws.com"
+}
